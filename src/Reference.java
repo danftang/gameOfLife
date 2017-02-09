@@ -11,7 +11,6 @@ public class Reference<T> {
     public Reference(T referent) {
         executor = pool.executorFor(referent);
         this.referent = referent;
-//        System.out.println("Created reference for "+referent+" on "+executor);
     }
 
 }

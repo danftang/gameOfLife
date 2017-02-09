@@ -1,8 +1,9 @@
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by daniel on 09/02/17.
  */
 public interface ISteppable {
-    CompletableFuture<Void> step();
+    void step() throws ExecutionException, InterruptedException, EndSimulationException;
 }

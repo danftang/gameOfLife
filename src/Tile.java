@@ -12,15 +12,10 @@ public class Tile implements Serializable {
     public boolean[][] newstate;
     public TileReference leftTile;
     public TileReference rightTile;
-    public TileReference me;
-    public boolean[] leftBoundary;
-    public boolean[] rightBoundary;
-
 
     public Tile(int size) {
         state = new boolean[size+1][size+1];
         newstate = new boolean[size+1][size+1];
-        me = new TileReference(this);
         // set up top and bottom boundaries
         int i,j;
         for(i = 0; i<state.length; i++) {
@@ -34,15 +29,23 @@ public class Tile implements Serializable {
         }
     }
 
-    public static void join(Tile [] tiles) {
+    public static void join(TileReference [] tiles) {
         int i;
         for(i=1; i<tiles.length; ++i) {
-            tiles[i-1].rightTile = new TileReference(tiles[i]);
-            tiles[i].leftTile = new TileReference(tiles[i-1]);
+            tiles[i-1].setRightTile(tiles[i]);
+            tiles[i].setLeftTile(tiles[i-1]);
         }
         i--;
-        tiles[i].rightTile = new TileReference(tiles[0]);
-        tiles[0].leftTile = new TileReference(tiles[i]);
+        tiles[i].setRightTile(tiles[0]);
+        tiles[0].setLeftTile(tiles[i]);
+    }
+
+    public void setLeftTile(TileReference tile) {
+        leftTile = tile;
+    }
+
+    public void setRightTile(TileReference tile) {
+        rightTile = tile;
     }
 
     public boolean[] getLeftBoundary() {

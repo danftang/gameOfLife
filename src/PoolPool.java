@@ -5,9 +5,9 @@ import java.util.concurrent.Executors;
  * Created by daniel on 08/02/17.
  */
 public class PoolPool {
-    public static ExecutorService[] poolpool;
-    public static ExecutorService main;
-    private static ThreadLocal<ExecutorService> currentExec = new ThreadLocal<>();
+    public ExecutorService[] poolpool;
+    public ExecutorService main;
+    private ThreadLocal<ExecutorService> currentExec = new ThreadLocal<>();
     // each object has a unique thread, but each thread serves many objects.
 
 
@@ -35,8 +35,11 @@ public class PoolPool {
         }
     }
 
-    public static ExecutorService currentExecutor() {
+    public ExecutorService currentExecutor() {
         return currentExec.get();
+    }
+    public void setCurrentExecutor(ExecutorService t) {
+        currentExec.set(t);
     }
 
     public ExecutorService executorFor(Object obj) {
