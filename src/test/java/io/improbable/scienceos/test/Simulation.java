@@ -1,3 +1,8 @@
+package io.improbable.scienceos.test;
+
+import io.improbable.scienceos.EndSimulationException;
+import io.improbable.scienceos.ISimulation;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 

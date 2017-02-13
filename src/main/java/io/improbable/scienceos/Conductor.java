@@ -1,17 +1,22 @@
-import com.sun.org.apache.xpath.internal.axes.FilterExprIteratorSimple;
+package io.improbable.scienceos;
 
-import javax.naming.ReferralException;
-import java.sql.Ref;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import static java.lang.Thread.sleep;
 
-public class Main {
+public class Conductor implements Runnable {
 
-    public static void main(String[] args) {
+    private ISimulation sim;
+
+    static {
         Reference.pool.setCurrentExecutor(Reference.pool.main);
-        ISimulation sim = new Simulation();
+    }
+
+    public Conductor(ISimulation sim) {
+        this.sim = sim;
+    }
+
+    public void run() {
         try {
             int i;
             for(i=0; i<100; ++i) {
