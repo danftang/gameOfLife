@@ -4,14 +4,14 @@ import java.util.concurrent.Executors;
 /**
  * Created by daniel on 08/02/17.
  */
-public class PoolPool {
+public class WorkerPool {
     public ExecutorService[] poolpool;
     public ExecutorService main;
     private ThreadLocal<ExecutorService> currentExec = new ThreadLocal<>();
     // each object has a unique thread, but each thread serves many objects.
 
 
-    public PoolPool(int N) {
+    public WorkerPool(int N) {
         int i;
         poolpool = new ExecutorService[N];
         main = Executors.newSingleThreadExecutor();

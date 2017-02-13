@@ -57,6 +57,7 @@ public class Tile implements Serializable {
     }
 
     public void step() {
+
 //        System.out.println("Stepping "+this);
         // set up left and right boundaries
         CompletableFuture<boolean []> leftBoundary = leftTile.getRightBoundary();
