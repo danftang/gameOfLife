@@ -1,8 +1,8 @@
-import java.util.HashMap;
-import java.util.Map;
+package io.improbable.scienceos.test;
+
+import io.improbable.scienceos.Reference;
+
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ForkJoinPool;
 
 /**
  * Created by daniel on 07/02/17.

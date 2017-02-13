@@ -1,4 +1,5 @@
-import java.util.concurrent.CompletableFuture;
+package io.improbable.scienceos;
+
 import java.util.concurrent.ExecutionException;
 
 /**
